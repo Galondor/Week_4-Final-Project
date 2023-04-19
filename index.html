@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dictionary API</title>
+    <title>Dictionary.com</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,11 +12,13 @@
     <audio id="sound"></audio>
     <nav>
         <div class="row">
-            <div class="logo"></div>
+                <figure class="logo">
+                    <img class="logo_img" src="assets/book-open.svg" alt="Logo">
+                </figure>
                 <div class="nav_links">
-                    <a class="nav_link" href="">Home</a>
-                    <a class="nav_link" href="">Search</a>
-                    <a class="nav_link" href="">About</a>
+                    <a class="nav_link" href="#landing">Home</a>
+                    <a class="nav_link" href="#landing">Search</a>
+                    <a class="nav_link" href="assets/word_list.txt" target="_blank">Words</a>
                 </div>
         </div>
     </nav>
@@ -24,20 +26,16 @@
         <div class="container">
             <div class="row">
                 <div class="heading_container">
-                    <h1 class="title">Dictionary</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo impedit asperiores itaque ab,
-                        vitae laboriosam consequatur ipsum quis optio a cum ex voluptate ipsa eveniet,
-                        autem perferendis, facere vel necessitatibus.
-                    </p>
+                    <h1 class="title">Dictionary.com</h1>
+                    <p>Welcome to Dictionary.com, a free API based dictionary!</p>
+                    <p>Disclaimer: This API doesn't contain everyword, <br> so please follow the words button to see all the supported words.</p>
                 </div>
                 <div class="search_box">
                     <div class="search_bar">
-                        <input class="search_input" type="text" placeholder="Search for a Word">
-                        <button class="search_btn"><img class="search_img" src="assets/search.svg" alt="Search"></button>
+                        <input class="search_input" type="text" placeholder="Search for a Word" onkeydown="search()">
+                        <button class="search_btn" onclick="renderData()"><img class="search_img" src="assets/search.svg" alt="Search"></button>
                     </div>
-                    <div class="result" id="result">
-                        
-                    </div>
+                    <div class="result" id="result"></div>
                 </div>
             </div>
         </div>

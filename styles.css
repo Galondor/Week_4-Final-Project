@@ -78,6 +78,7 @@ nav .row {
     color: whitesmoke;
     text-align: center;
     font-weight: 500;
+    margin: 8px;
 }
 
 .heading_container {
@@ -99,11 +100,11 @@ nav .row {
     width: 100%;
     padding: 12px;
     border: 0px solid transparent;
-    border-radius: 8px;
     color: #242424;
     font-size: 16px;
     outline: none;
     background-color: transparent;
+    border-left: 5px solid #242424;
 }
 
 .search_btn {
@@ -127,14 +128,15 @@ nav .row {
 
 .search_box {
     background-color: #ffffff;
-    width: 80%;
+    width: 40%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 80px 52px;
     border-radius: 8px;
-    margin-top: 96px;
+    margin-top: 92px;
+    margin-bottom: 92px;
 }
 
 .word h3 {
@@ -149,7 +151,7 @@ nav .row {
 }
 
 .audio_btn {
-    cursor: pointer;
+    cursor: not-allowed;
     background-color: transparent;
     border: none;
     padding: 8px;
@@ -190,3 +192,21 @@ nav .row {
     color: red;
 }
 
+.logo_img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.logo_img:hover {
+    transform: scale(107%);
+}
+
+.word-2 {
+    margin-top: 22px;
+}
+
+.word-2 h3 {
+    font-size: 24px;
+}
