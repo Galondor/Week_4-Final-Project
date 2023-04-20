@@ -32,8 +32,9 @@
                 </div>
                 <div class="search_box">
                     <div class="search_bar">
-                        <input class="search_input" type="text" placeholder="Search for a Word" onkeydown="search()">
-                        <button class="search_btn" onclick="renderData()"><img class="search_img" src="assets/search.svg" alt="Search"></button>
+                        <input class="search_input" type="text" placeholder="Search for a Word" onkeydown="search()" onchange="clearRender()">
+                        <button class="search_btn" onclick="search()"><img class="search_img" src="assets/search.svg" alt="Search"></button>
+                        <img src="assets/loader.svg" alt="Loading..." class="loader">
                     </div>
                     <div class="result" id="result"></div>
                 </div>

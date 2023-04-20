@@ -65,6 +65,12 @@ nav .row {
 
 /* LANDING */
 
+#landing .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .title {
     font-size: 48px;
     text-align: center;
@@ -128,14 +134,9 @@ nav .row {
 
 .search_box {
     background-color: #ffffff;
-    width: 40%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 50%;
     padding: 80px 52px;
     border-radius: 8px;
-    margin-top: 92px;
     margin-bottom: 92px;
 }
 
@@ -209,4 +210,20 @@ nav .row {
 
 .word-2 h3 {
     font-size: 24px;
+}
+
+.loader {
+    height: 24px;
+    width: 24px;
+    display: none;
+    animation: spin 500ms;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

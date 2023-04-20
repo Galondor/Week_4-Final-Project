@@ -2,10 +2,27 @@ const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const result = document.getElementById("result");
 const sound = document.getElementById("sound");
 const btn = document.querySelector(".search_btn");
+const searchImg = document.querySelector(".search_img");
+const loader = document.querySelector(".loader");
+let clicked = false;
+
+btn.addEventListener("click", function() {
+  clicked = true;
+})
 
 function search() {
   if (event.key === "Enter") {
-    renderData();
+    searchImg.style.display = "none"
+    loader.style.display = "flex"
+    setTimeout(() => {
+      renderData();
+    }, 500)
+  } else if (clicked === true) {
+    searchImg.style.display = "none"
+    loader.style.display = "flex"
+    setTimeout(() => {
+      renderData();
+    }, 500)
   }
 }
 
@@ -16,63 +33,29 @@ async function renderData() {
   console.log(data);
 
   try {
-    result.innerHTML = `<div class="word">
-    <h3>${input}</h3>
-    <button class="audio_btn" onclick="playSound()"><img class="audio_img" src="assets/volume-2.svg" alt="Sound"></button>
-</div>
-<div class="details">
-    <p>${data[0].meanings[0].partOfSpeech}</p>
-    <p>${data[0].phonetic}</p>
-</div>
-<p class="word_definition">${data[0].meanings[0].definitions[0].definition}</p>
-<p class="word_example">${
-      data[0].meanings[0].definitions[0].example || ""
-    }</p>`;
-
-    let search = document.querySelector(".search_box");
-    search.style.marginTop = "152px";
-
-    if (!!data[1]) {
-      result.innerHTML += `<div class="word word-2">
-            <h3>${input}</h3>
-        </div>
-        <div class="details">
-            <p>${data[1].meanings[0].partOfSpeech}</p>
-            <p>${data[1].phonetic}</p>
-        </div>
-        <p class="word_definition">${
-          data[1].meanings[0].definitions[0].definition
-        }</p>
-        <p class="word_example">${
-          data[1].meanings[0].definitions[0].example || ""
-        }</p>`;
-      let search = document.querySelector(".search_box");
-      search.style.marginTop = "252px";
+    for (let i = 0; i < data.length; i++) {
+      result.innerHTML += `<div class="word">
+      <h3>${input}</h3>
+      <button class="audio_btn" onclick="playSound()"><img class="audio_img" src="assets/volume-2.svg" alt="Sound"></button>
+  </div>
+  <div class="details">
+      <p>${data[i].meanings[0].partOfSpeech}</p>
+      <p>${data[i].phonetic}</p>
+  </div>
+  <p class="word_definition">${data[i].meanings[0].definitions[0].definition}</p>
+  <p class="word_example">${data[i].meanings[0].definitions[0].example || ""}</p>`
+  loader.style.display = "none"
+  searchImg.style.display = "flex"
     }
-
-    if (!!data[2]) {
-        result.innerHTML += `<div class="word word-2">
-              <h3>${input}</h3>
-          </div>
-          <div class="details">
-              <p>${data[2].meanings[0].partOfSpeech}</p>
-              <p>${data[2].phonetic}</p>
-          </div>
-          <p class="word_definition">${
-            data[2].meanings[0].definitions[0].definition
-          }</p>
-          <p class="word_example">${
-            data[2].meanings[0].definitions[0].example || ""
-          }</p>`;
-        let search = document.querySelector(".search_box");
-        search.style.marginTop = "300px";
-      }
-
   } catch (e) {
-    result.innerHTML = `<div class="word"><h3>${input}</h3></div><p class="word_definition word_error">Database couldn't find that word, please try another word.</p>`;
+    result.innerHTML = `<div class="word"><h3>${title}</h3></div><p class="word_definition word_error">Database couldn't find that word, please try another word.</p>`;
   }
 }
 
 function playSound() {
   sound.play();
+}
+
+function clearRender() {
+  result.innerHTML = "";
 }
