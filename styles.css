@@ -140,7 +140,7 @@ nav .row {
     margin-bottom: 92px;
 }
 
-.word h3 {
+.searched_word {
     font-size: 36px;
     font-weight: 600;
 }
@@ -202,14 +202,6 @@ nav .row {
 
 .logo_img:hover {
     transform: scale(107%);
-}
-
-.word-2 {
-    margin-top: 22px;
-}
-
-.word-2 h3 {
-    font-size: 24px;
 }
 
 .loader {
