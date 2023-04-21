@@ -4,6 +4,7 @@ const sound = document.getElementById("sound");
 const btn = document.querySelector(".search_btn");
 const searchImg = document.querySelector(".search_img");
 const loader = document.querySelector(".loader");
+const menu = document.querySelector(".open_menu");
 let clicked = false;
 
 btn.addEventListener("click", function() {
@@ -64,6 +65,18 @@ function renderData (data, input) {
 loader.style.display = "none"
 searchImg.style.display = "flex"
 }
+}
+
+function openMenu() {
+    document.body.classList += "menu_open";
+}
+
+function closeMenu() {
+  document.querySelector(".menu_backdrop").style.animation = "fadeOut 300ms ease";
+  setTimeout(() => {
+    document.body.classList.remove("menu_open");
+    document.querySelector(".menu_backdrop").style.animation = "fadeIn 300ms ease";
+  }, 300);
 }
 
 function playSound() {
