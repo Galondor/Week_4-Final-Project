@@ -263,6 +263,7 @@ nav .row {
     height: 40px;
     width: 40px;
     transition: all 300ms ease;
+    display: none;
 }
 
 .menu_open .menu_backdrop {
@@ -309,5 +310,9 @@ nav .row {
         display: flex;
         margin: 12px 0px 12px 0px;
         font-size: 36px;
+    }
+
+    .menu {
+        display: flex;
     }
 }
