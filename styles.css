@@ -52,14 +52,25 @@ nav .row {
     transform: scale(105%)
 }
 
-.nav_link:last-child {
+.nav_links .nav_link:nth-child(3) {
     border-radius: 9999px;
     padding: 8px 24px;
     background-color: white;
     color: #242424;
 }
 
-.nav_link:last-child:hover {
+.nav_links .nav_link:nth-child(3):hover {
+    background-color: whitesmoke;
+}
+
+.menu_backdrop .nav_link:nth-child(3) {
+    border-radius: 9999px;
+    padding: 8px 24px;
+    background-color: white;
+    color: #242424;
+}
+
+.menu_backdrop .nav_link:nth-child(3):hover {
     background-color: whitesmoke;
 }
 
@@ -221,6 +232,8 @@ nav .row {
         transform: rotate(360deg);
     }
 }
+
+/* MOBILE */
 
 .menu_backdrop {
     position: absolute;
